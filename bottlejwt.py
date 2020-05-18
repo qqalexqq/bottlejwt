@@ -41,7 +41,7 @@ class JwtPlugin(object):
                 return token
             _type, token = request.headers['Authorization'].split(" ")
             if _type.lower() != "bearer":
-                return None
+                return request.cookies.access_token
             return token
         except:
             return None
